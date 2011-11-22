@@ -1,8 +1,12 @@
 CFLAGS += -g -pedantic -Wall -Wextra -std=c99
 OBJDIR = obj
 BINDIR = bin
+SRCDIR = .
 
-$(BINDIR)/mysh: $(OBJDIR)/mysh.o  $(OBJDIR)/cd.o
+MYSH_DEP = cd resizable mysh
+MYSH_DEP_H = $(addsuffix .h,  $(addprefix $(SRCDIR)/, $(MYSH_DEP)) )
+MYSH_DEP_OBJ = $(addsuffix .o,  $(addprefix $(OBJDIR)/, $(MYSH_DEP)) )
+$(BINDIR)/mysh: $(MYSH_DEP_H) $(MYSH_DEP_OBJ)
 	mkdir -p bin
 	gcc $(CFLAGS) $^ -o $@
 
