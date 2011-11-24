@@ -3,7 +3,7 @@ OBJDIR = obj
 BINDIR = bin
 SRCDIR = .
 
-MYSH_DEP = cd resizable mysh input
+MYSH_DEP = cd resizable mysh input command
 MYSH_DEP_H = $(addsuffix .h,  $(addprefix $(SRCDIR)/, $(MYSH_DEP)) )
 MYSH_DEP_OBJ = $(addsuffix .o,  $(addprefix $(OBJDIR)/, $(MYSH_DEP)) )
 $(BINDIR)/mysh: $(MYSH_DEP_H) $(MYSH_DEP_OBJ)

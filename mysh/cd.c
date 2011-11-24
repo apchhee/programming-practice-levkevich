@@ -7,6 +7,11 @@
 
 int cd(const char* path) 
 {
+  if (NULL == path) {
+    printf("Path is not specified\n");
+    return 1;
+  }
+
   if (chdir(path) < 0) {
 
     switch (errno) {
