@@ -33,7 +33,15 @@ int main(int argc, char * argv[])
         printf("Syntax error near token \'%s\'\n", arguments[incorrect_token]);
 
       } else {
-        printf("ok\n");
+        int commands_count;
+        command * commands = parse_to_commands(arguments, &commands_count);
+        if (execute_commands(commands, commands_count) != 0) {
+          perror(NULL);
+        }
+
+        for (int i = 0; i < commands_count; ++i)
+          free_command(commands[i]);
+        free(commands);
       }
  
     }

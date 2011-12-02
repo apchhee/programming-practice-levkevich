@@ -193,13 +193,11 @@ command * parse_to_commands(char ** args, int * commands_count)
   argument = args;
   int i = 0;
   while (NULL != *argument) {
-    commands[i].path = string_copy(*argument);
-    ++argument;
-    commands[i].args = NULL;
-    commands[i].infile = commands[i].outfile = NULL;
     rsz_str_array args = {
       .array = NULL
     };
+    commands[i].args = NULL;
+    commands[i].infile = commands[i].outfile = NULL;
 
     while (NULL != *argument && strcmp(*argument, "|")) {
       if (strcmp(*argument, "<") == 0) {

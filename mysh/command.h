@@ -4,12 +4,12 @@
 #define _COMMAND_H_
 
 typedef struct command {
-  char * path;
   char ** args;
   char * infile;
   char * outfile;
 } command;
 
+int execute_commands(command * cmds, int count);
 void free_command(command cmd);
 
 #endif /* _COMMAND_H_ */

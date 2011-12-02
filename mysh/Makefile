@@ -15,6 +15,7 @@ $(OBJDIR)/%.o: %.c
 	gcc -c $(CFLAGS) $^ -o $@
 
 .PHONY: clear
+clear:
 	rm -r $(BINDIR)
 	rm -r $(OBJDIR)
 
